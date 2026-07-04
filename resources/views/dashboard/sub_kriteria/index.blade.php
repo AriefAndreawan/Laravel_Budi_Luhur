@@ -31,7 +31,7 @@
                                                     Matriks
                                                 </button>
                                             @else
-                                                <a href="{{ route("perhitungan_kriteria.ubah", ["kriteria_id" => $item['kriteria_id']]) }}" class="btn btn-sm btn-warning text-white normal-case">
+                                               <a href="{{ route('perhitungan_kriteria.ubah', ['kriteria_id' => $item['kriteria_id']]) }}" class="btn btn-sm btn-warning text-white normal-case">
                                                     <i class="ri-pencil-fill"></i>
                                                     Matriks
                                                 </a>

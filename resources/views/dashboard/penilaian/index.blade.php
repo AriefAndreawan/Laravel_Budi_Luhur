@@ -129,7 +129,7 @@
                                         <td class="px-4 py-3 text-gray-700 dark:text-gray-400 uppercase font-semibold">{{ $item->nama }}</td>
                                         @foreach ($kategori as $value)
                                             <td class="px-4 py-3 text-gray-700 dark:text-gray-400 uppercase font-semibold">
-                                                {{ round($matriksNilaiSubKriteria->where('kriteria_id', $item->id)->where('kategori_id', $value->id)->first()->prioritas, 3) }}
+                                               {{ $matriksNilaiSubKriteria->where('kriteria_id', $item->id)->where('kategori_id', $value->id)->first() ? round($matriksNilaiSubKriteria->where('kriteria_id', $item->id)->where('kategori_id', $value->id)->first()->prioritas, 3) : 0 }}
                                             </td>
                                         @endforeach
                                     </tr>
