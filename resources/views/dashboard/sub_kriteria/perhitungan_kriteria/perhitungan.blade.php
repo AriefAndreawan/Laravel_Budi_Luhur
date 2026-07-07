@@ -230,7 +230,7 @@
                             $jmlKategori = $kategori->count();
                         @endphp
                         {{-- Cara Cek CR 1 --}}
-                        <div class="overflow-x-auto p-3 mt-3">
+                        <!-- <div class="overflow-x-auto p-3 mt-3">
                             <table id="tabel_data_matriks_penjumlahan" class="nowrap w-full text-sm text-left text-gray-500 dark:text-gray-400 stripe hover" style="width:100%; padding-top: 1em; padding-bottom: 1em;">
                                 <caption class="mb-3 text-base">Consistency Ratio: Cara 1</caption>
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -292,7 +292,7 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                        </div>
+                        </div> -->
 
                         {{-- Cara Cek CR 2 --}}
                         <div class="overflow-x-auto p-3 mt-3">

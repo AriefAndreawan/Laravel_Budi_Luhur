@@ -83,40 +83,36 @@
             </div>
 
             {{-- Tabel Prioritas Sub Kriteria --}}
-            <div class="relative mb-7 overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
-                <div class="d mb-5 flex items-center justify-between p-4">
-                    <div class="flex space-x-3">
-                        <div class="flex items-center space-x-3">
-                            <h2 class="text-xl font-bold text-gray-800 dark:text-gray-200">Prioritas Sub Kriteria</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="overflow-x-auto p-3">
-                    <table border="0" cellpadding="0" cellspacing="0" style="width:100%; padding-top: 1em; padding-bottom: 1em;">
-                        <thead class="bg-gray-50 text-xs uppercase text-gray-700">
-                            <tr>
-                                <th scope="col" class="px-4 py-3">Kriteria</th>
-                                @foreach ($kategori as $item)
-                                    <th scope="col" class="px-4 py-3">{{ $item->nama }}</th>
-                                @endforeach
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($kriteria as $item)
-                                <tr class="border-b dark:border-gray-700">
-                                    <td class="px-4 py-3 font-semibold uppercase text-gray-700 dark:text-gray-400">{{ $item->nama }}</td>
-                                    @foreach ($kategori as $value)
-                                        <td class="px-4 py-3 font-semibold uppercase text-gray-700 dark:text-gray-400">
-                                            {{ round($matriksNilaiSubKriteria->where("kriteria_id", $item->id)->where("kategori_id", $value->id)->first()->prioritas,3) }}
-                                        </td>
-                                    @endforeach
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
+<div class="relative mb-7 overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
+    <div class="d mb-5 flex items-center justify-between p-4">
+        <h2 class="text-xl font-bold text-gray-800 dark:text-gray-200">Prioritas Sub Kriteria</h2>
+    </div>
+    <div class="overflow-x-auto p-3">
+        <table border="0" cellpadding="0" cellspacing="0" style="width:100%; padding-top: 1em; padding-bottom: 1em;">
+            <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+                <tr>
+                    <th scope="col" class="px-4 py-3">Kriteria</th>
+                    @foreach ($kategori as $item)
+                        <th scope="col" class="px-4 py-3">{{ $item->nama }}</th>
+                    @endforeach
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($kriteria as $item)
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-semibold uppercase text-gray-700 dark:text-gray-400">{{ $item->nama }}</td>
+                        @foreach ($kategori as $value)
+                            <td class="px-4 py-3 font-semibold uppercase text-gray-700 dark:text-gray-400">
+                                {{-- Akses langsung via array/map, jauh lebih cepat dari ->where() --}}
+                                {{ round($dataSubKriteria[$item->id][$value->id]->prioritas ?? 0, 3) }}
+                            </td>
+                        @endforeach
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
             {{-- Tabel Hasil AHP --}}
             <div class="relative mb-7 overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
                 <div class="d mb-5 flex items-center justify-between p-4">
